@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Load data from an external GeoJSON file</title>
+    <title>Washington Earthquakes 2022-2023</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
@@ -16,13 +16,20 @@
         #container {
             display: flex;
             height: 100vh;
-            flex-direction: row;
-            align-items: stretch;
+            position: right;
         }
 
-        #table {
+        #side-panel {
             flex-basis: 500px;
             overflow-y: scroll;
+            background-color: #f8f8f8; /* Set a background color for the side panel */
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+            padding: 20px; /* Add some padding for better aesthetics */
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%; /* Fill the full height of the viewport */
+            z-index: 1; /* Ensure the side panel is above the map */
         }
 
         #map {
@@ -66,9 +73,9 @@
 
 <body>
     <main id="container">
-        <div id="table">
+        <div id="side-panel">
 
-            <h2>Earthquake List</h2>
+            <h2>Washington Earthquake List 2022-2023</h2>
             <button onclick="sortTable()">Sort by Magnitude</button>
             
 
@@ -90,8 +97,8 @@
         const map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
-            zoom: 6, // starting zoom
-            center: [-120.7401, 47.7511] // starting center
+            zoom: 5.9, // starting zoom
+            center: [-117.7401, 47.7511] // starting center
         });
 
 
